@@ -19,10 +19,8 @@ export default class MenuBar {
 		this.hasFocus = false;
 		this.hasHover = false;
 
-		this.activationDelay = 500;
-
-		this.flyout = this.domNode.querySelector('[data-elem-menu-flyout-pane]');
-
+		this.activationDelay = 300;
+		
 		this.cssClassHover = '_hover';
 	}
 
@@ -135,21 +133,6 @@ export default class MenuBar {
 
 	getElementIndex(domNode) {
 		return this.menubarItems.indexOf(domNode);
-	}
-
-	toggleFlyout(height) {
-		const flyoutStyles = this.flyout.style;
-		if (height === 0) {
-			flyoutStyles.opacity = 0;
-			flyoutStyles.height = '10vh';
-			flyoutStyles.visibility = 'hidden';
-		} else {
-			const topPosition = window.scrollY ? window.scrollY : window.pageYOffset;
-			flyoutStyles.top = `${parseInt(this.domNode.getBoundingClientRect().bottom + topPosition, 10)}px`;
-			flyoutStyles.opacity = 1;
-			flyoutStyles.height = `${height + 4}px`;
-			flyoutStyles.visibility = 'visible';
-		}
 	}
 
 	destroy() {

@@ -138,13 +138,6 @@ export default class MenuBarPopup {
 	toggleExpanded(isExpanded) {
 		this.domNode.setAttribute('aria-expanded', isExpanded);
 		this.isPopUpExpanded = isExpanded;
-
-		if (isExpanded) {
-			const contentHeight = this.popupMenu.domNode.clientHeight;
-			this.menuBar.toggleFlyout(contentHeight);
-		} else {
-			this.menuBar.toggleFlyout(0);
-		}
 	}
 
 	handleFocus() {
